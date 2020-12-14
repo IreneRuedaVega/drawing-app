@@ -9,10 +9,9 @@ window.addEventListener("load", () => {
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
 
-  window.addEventListener("resize", reportWindowSize);
-
   //variables
   let painting = false;
+  let hue = 0;
 
   function startPosition(e) {
     painting = true;
@@ -28,11 +27,12 @@ window.addEventListener("load", () => {
     if (!painting) return;
     ctx.lineWidth = 8;
     ctx.lineCap = "round";
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
     ctx.lineTo(e.clientX, e.clientY);
     ctx.stroke();
     ctx.beginPath();
     ctx.moveTo(e.clientX, e.clientY);
+    hue++;
   }
 
   //EventListeners
