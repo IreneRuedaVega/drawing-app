@@ -25,14 +25,14 @@ window.addEventListener("load", () => {
 
   function draw(e) {
     if (!painting) return;
-    ctx.lineWidth = 8;
+    ctx.lineWidth = 15;
     ctx.lineCap = "round";
     ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+    hue++;
     ctx.lineTo(e.clientX, e.clientY);
     ctx.stroke();
     ctx.beginPath();
     ctx.moveTo(e.clientX, e.clientY);
-    hue++;
   }
 
   //EventListeners
