@@ -9,6 +9,8 @@ window.addEventListener("load", () => {
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
 
+  window.addEventListener("resize", reportWindowSize);
+
   //variables
   let painting = false;
 
@@ -24,7 +26,7 @@ window.addEventListener("load", () => {
 
   function draw(e) {
     if (!painting) return;
-    ctx.lineWidth = 10;
+    ctx.lineWidth = 8;
     ctx.lineCap = "round";
     ctx.strokeStyle = "black";
     ctx.lineTo(e.clientX, e.clientY);
